@@ -1,19 +1,19 @@
 package org.example;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Logic {
     private List<User> users = new ArrayList<>();
     private int id = 0;
 
-    public void createUser(User user) {
+    public void createUser(User user) throws SQLException {
         if (!searchUser(user.getName())) {
             System.out.println("Такой пользователь уже существует");
         } else {
-            user.setId(++id);
-            users.add(user);
-            System.out.println("Новый пользователь добавлен");
+            Service.setUser(user);
         }
     }
 
@@ -28,7 +28,8 @@ public class Logic {
 
 
     public boolean Autorisation(String login, String pass) {
-        for (User user : users) {
+        Collection<User> collection = Service.getUsers();
+        for (User user : collection) {
             if (user.getName().equalsIgnoreCase(login) && user.getPassword().equalsIgnoreCase(pass)) {
                 return true;
             }
@@ -36,9 +37,5 @@ public class Logic {
         return false;
     }
 
-    public void getUsers(){
-        for (User user : users) {
-            System.out.println(user.toString());
-        }
-    }
+
 }

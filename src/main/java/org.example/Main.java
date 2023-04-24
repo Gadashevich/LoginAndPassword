@@ -1,10 +1,12 @@
 package org.example;
 
+import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Logic logic = new Logic();
         Scanner scanner = new Scanner(System.in);
 
@@ -21,7 +23,6 @@ public class Main {
                 scanner.nextLine();
                 continue;
             } else {
-
                 int i = scanner.nextInt();
                 scanner.nextLine();
 
@@ -54,14 +55,13 @@ public class Main {
 
                     case 3:
                         System.out.println("Список пользователей:");
-                        logic.getUsers();
+                        Collection<User> collection = Service.getUsers();
+                        for (User user : collection) {
+                            System.out.println(user.toString());
+                        }
                         break;
                 }
-
             }
-
         }
-
     }
-
 }
