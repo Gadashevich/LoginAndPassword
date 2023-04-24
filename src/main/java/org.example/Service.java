@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class Service {
 
-    public static void setUser(User user)  throws SQLException {
+    public static void setUser(User user) throws SQLException {
         Connection connection = ConnectionDB.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO  users(name,age,password) VALUES (?,?,?)");
@@ -35,7 +35,7 @@ public class Service {
         } catch (SQLException e) {
             System.out.println("Произошла ошибка вывода всех пользователей в БД");
         }
-        return  collection;
+        return collection;
     }
 
 

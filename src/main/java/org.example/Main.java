@@ -10,7 +10,6 @@ public class Main {
         Logic logic = new Logic();
         Scanner scanner = new Scanner(System.in);
 
-
         while (true) {
             System.out.println();
             System.out.println("Введите команду для работы:  ");
@@ -30,6 +29,10 @@ public class Main {
                     case 1:
                         System.out.println("Введите Имя пользователя");
                         String name = scanner.nextLine();
+                        if (!logic.searchUser(name)) {
+                            System.out.println("Пользователь уже существует! Введите другое имя");
+                            break;
+                        }
                         System.out.println("Введите Возраст пользователя");
                         if (!scanner.hasNextInt()) {
                             System.out.println("Ошибка! Вы ввели не число");
