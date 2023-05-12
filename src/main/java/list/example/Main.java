@@ -1,13 +1,10 @@
-package org.example;
+package list.example;
 
-import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException {
-        Logic logic = new Logic();
+    public static void main(String[] args)   {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -29,7 +26,7 @@ public class Main {
                     case 1:
                         System.out.println("Введите Имя пользователя");
                         String name = scanner.nextLine();
-                        if (!logic.searchUser(name)) {
+                        if (!Logic.searchUser(name)) {
                             System.out.println("Пользователь уже существует! Введите другое имя");
                             break;
                         }
@@ -41,27 +38,27 @@ public class Main {
                         } else {
                             int age = scanner.nextInt();
                             scanner.nextLine();
+
                             System.out.println("Введите Пароль пользователя");
                             String pass = scanner.nextLine();
+
                             User user = new User(name, age, pass);
-                            logic.createUser(user);
+                            Logic.createUser(user);
                         }
                         break;
                     case 2:
                         System.out.println("Введите логин:");
                         String login = scanner.nextLine();
+
                         System.out.println("Введите пароль:");
                         String password = scanner.nextLine();
-                        if (logic.Autorisation(login, password)) System.out.println("Авторизация успешна");
+
+                        if (Logic.autorisation(login, password)) System.out.println("Авторизация успешна");
                         else System.out.println("Неуспешная авторизация");
                         break;
-
                     case 3:
                         System.out.println("Список пользователей:");
-                        Collection<User> collection = Service.getUsers();
-                        for (User user : collection) {
-                            System.out.println(user.toString());
-                        }
+                        Logic.getUser();
                         break;
                 }
             }

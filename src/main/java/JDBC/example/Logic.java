@@ -1,4 +1,4 @@
-package org.example;
+package JDBC.example;
 
 import java.sql.SQLException;
 import java.util.Collection;

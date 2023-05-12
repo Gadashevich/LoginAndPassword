@@ -1,4 +1,4 @@
-package org.example;
+package IO.example;
 
 public class User {
     private int id;
@@ -7,13 +7,6 @@ public class User {
     private String password;
 
     public User(String name, int age, String password) {
-        this.name = name;
-        this.age = age;
-        this.password = password;
-    }
-
-    public User(int id, String name, int age, String password) {
-        this.id = id;
         this.name = name;
         this.age = age;
         this.password = password;
@@ -53,11 +46,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", password='" + password + '\'' +
-                '}';
+        return "\n Пользователь id =" + id +", имя  = " + name +", возраст = "+ age + ", пароль = " + password  ;
     }
 }

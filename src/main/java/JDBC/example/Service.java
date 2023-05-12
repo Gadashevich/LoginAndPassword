@@ -1,4 +1,4 @@
-package org.example;
+package JDBC.example;
 
 import java.sql.*;
 import java.util.ArrayList;
